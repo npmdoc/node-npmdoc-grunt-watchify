@@ -1,0 +1,136 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/amiorin/grunt-watchify">grunt-watchify (v0.1.0)</a>
+</h1>
+<h4>Browserify your code</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.grunt-watchify">module grunt-watchify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-watchify.grunt-watchify">
+            function <span class="apidocSignatureSpan"></span>grunt-watchify
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.grunt-watchify" id="apidoc.module.grunt-watchify">module grunt-watchify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-watchify.grunt-watchify" id="apidoc.element.grunt-watchify.grunt-watchify">
+        function <span class="apidocSignatureSpan"></span>grunt-watchify
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-watchify = function (grunt) {
+  grunt.initConfig({
+
+    clean: {
+      tests: ['tmp']
+    },
+
+    nodeunit: {
+      tests: ['test/*_test.js']
+    },
+
+    watchify: {
+      basic: {
+        src: './test/fixtures/basic/*.js',
+        dest: 'tmp/basic.js'
+      },
+      alias: {
+        src: './test/fixtures/alias/*.js',
+        dest: 'tmp/alias.js',
+        options: {
+          callback: function(b) {
+            b.require('./test/fixtures/alias/toBeAliased.js', {expose: 'alias'});
+            return b;
+          }
+        }
+      },
+      sourceMaps: {
+        src: './test/fixtures/basic/*.js',
+        dest: 'tmp/sourceMaps.js',
+        options: {
+          debug: true
+        }
+      }
+    }
+  });
+
+  grunt.loadTasks('tasks');
+
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+
+  grunt.registerTask('test', ['clean', 'watchify', 'nodeunit']);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
